@@ -12,7 +12,9 @@ $food=$_GET['food'];
 $id=$_GET['id'];
 
 
-$sql="UPDATE food_status set $food='done' where user_id=$id";
+$coupon_date=date("d/m/Y");
+$sql="INSERT into food_status set food='$food',user_id=$id,coupon_date='$coupon_date'";
+
 
 updateStaus($sql,$id);
 

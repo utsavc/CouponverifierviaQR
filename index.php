@@ -17,6 +17,7 @@ if (isset($_SESSION['loggedin'])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <title>BIC Hackathon</title>
 </head>
 <body style="background: #58c6f5;">
@@ -25,7 +26,18 @@ if (isset($_SESSION['loggedin'])) {
 
             <div class="col-lg-3"></div>
 
-            <div class="col-lg-6 bg-white p-5">
+            <div class="col-lg-6 bg-white p-5 rounded">
+                <div class="text-center">
+                    <img src="bg.jpg" class="rounded" style="height: 50px;">
+                    
+                </div>
+                <div class="text-center mb-4" id="typed-strings">
+                    <p>BIC Hackathon Coupon Verifier</p>
+                    <p>Login to Continue</p>
+                </div>
+                <div class="text-center text-info">                    
+                    <span id="typed"></span>
+                </div>
                 <form action="" method="post" autocomplete="off">
                   <div class="mb-3">
                     <label>Username</label>
@@ -36,11 +48,11 @@ if (isset($_SESSION['loggedin'])) {
                     <input type="password" name="password" class="form-control">
                 </div>
 
-                    <?php
-                    if (isset($_GET['error'])) {
-                        msg('Error Username or Password','danger');
-                    }
-                    ?>
+                <?php
+                if (isset($_GET['error'])) {
+                    msg('Error Username or Password','danger');
+                }
+                ?>
 
                 <button type="submit" name="login" class="btn btn-sm btn-primary">Submit</button>
             </form>
@@ -49,6 +61,19 @@ if (isset($_SESSION['loggedin'])) {
         <div class="col-lg-3"></div>
     </div>
 </div>
+
+<script>
+    var typed = new Typed('#typed', {
+      stringsElement: '#typed-strings',
+      loop: true,
+      loopCount: Infinity,
+      typeSpeed:60,
+      backSpeed:10,
+      fadeOut: true,
+      fadeOutClass: 'typed-fade-out',
+      fadeOutDelay: 500,
+  });
+</script>
 
 
 </div>    

@@ -77,11 +77,11 @@ function showParticipants(){
 			global $link;		
 			$result=mysqli_query($link,$sql);
 			if (mysqli_num_rows($result) > 0) {?>
-				<a href="#" class="disabled bg-danger btn btn-sm text-white">Used</a>
+				<a href="#" class="disabled bg-danger btn btn-sm text-white">Expired</a>
 				<?php
 			}else{ ?>
 
-				<a href="update_status.php?food=<?php echo $food ?>&id=<?php echo $id ?>" class="bg-success btn btn-sm text-white">Unused</a>
+				<a href="update_status.php?food=<?php echo $food ?>&id=<?php echo $id ?>" class="bg-success btn btn-sm text-white">Use Now</a>
 				<?php
 			}
 		}
@@ -100,6 +100,21 @@ function showParticipants(){
 		}
 
 
+		function Counter($designation){
+			$sql="SELECT count(id) as registered from participant where designation='$designation'";
+
+			global $link;		
+			$result=mysqli_query($link,$sql);
+			if (mysqli_num_rows($result) > 0) {
+				$row=mysqli_fetch_array($result);
+				return $row[0];
+			}else{
+				return 0;
+			}
+
+
+		}
+
 
 		function updateStaus($sql,$id){
 			global $link;
@@ -108,8 +123,28 @@ function showParticipants(){
 			} else {
 				header('location:home.php?id='.$id);
 			}
-
 		}
+
+
+
+
+	function getDetails($id){
+		$sql="SELECT * from participant where id=".$id;
+		global $link;		
+		$result=mysqli_query($link,$sql);
+		if (mysqli_num_rows($result) > 0) {
+			$count=1;
+			while($row = mysqli_fetch_assoc($result)){?>
+					<h4>Name: <?php echo $row['name'] ?></h4>
+					<span>Designation: <?php echo $row['designation'] ?></span>
+
+				<?php }
+			}
+		}
+
+
+
+
 
 
 
