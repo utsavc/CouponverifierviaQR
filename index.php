@@ -22,11 +22,11 @@ if (isset($_SESSION['loggedin'])) {
 </head>
 <body style="background: #58c6f5;">
     <div class="container mt-5">
-        <div class="row mt-5">
+        <div class="row m-2">
 
-            <div class="col-lg-3"></div>
 
-            <div class="col-lg-6 bg-white p-5 rounded">
+
+            <div class="col-lg-8 bg-white p-5 rounded m-auto">
                 <div class="text-center">
                     <img src="bg.jpg" class="rounded" style="height: 50px;">
                     
@@ -58,7 +58,6 @@ if (isset($_SESSION['loggedin'])) {
             </form>
         </div>
 
-        <div class="col-lg-3"></div>
     </div>
 </div>
 
