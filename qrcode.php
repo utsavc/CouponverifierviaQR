@@ -22,7 +22,7 @@ $options = new QROptions(
   ]
 );
 
-$url="http://192.168.1.6/CouponVerifier/home.php?id=".$id;
+$url="http://192.168.88.41/CouponVerifier/home.php?id=".$id;
 
 
 $qrcode = (new QRCode($options))->render($url);

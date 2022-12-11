@@ -25,6 +25,8 @@ include_once 'navbar.php';  ?>
                         <option value="Staff">Staff</option>
                         <option value="Mentor">Mentor</option>
                         <option value="Judge">Judge</option>
+                        <option value="volunteer">Volunteer</option>
+                        <option value="coreTeam">Core Team</option>
                     </select>
                 </div>
 
